@@ -1,0 +1,6 @@
+investigation_rank,candidate_junction,fit_rank,mismatch,relative_fit_weight_pct,fitted_emitter_epanet,fitted_demand_multiplier,estimated_leak_lps,potential_recovery_m3_day,triage_index
+1,5,2,0.3181,48.88,0.35,1.05,2.371,204.9,100.16
+2,3,1,0.3132,49.12,0.3,1.075,1.965,169.8,83.4
+3,4,3,1.5308,1.69,0.35,1.05,2.413,208.5,3.53
+4,2,4,1.8902,0.27,0.3,1.075,1.869,161.5,0.43
+5,6,5,2.2004,0.04,0.35,1.05,2.46,212.5,0.08

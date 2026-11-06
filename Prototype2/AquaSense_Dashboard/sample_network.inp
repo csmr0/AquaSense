@@ -1,0 +1,44 @@
+[TITLE]
+; AquaSense sample network for educational leak-location demonstrations only
+
+[JUNCTIONS]
+;ID         Elevation    Demand      Pattern
+ 2          80           2
+ 3          75           3
+ 4          70           4
+ 5          72           3
+ 6          68           5
+
+[RESERVOIRS]
+;ID         Head         Pattern
+ 1          120
+
+[PIPES]
+;ID         Node1        Node2       Length   Diameter   Roughness   MinorLoss Status
+ 1          1            2           500      200        130         0         Open
+ 2          2            3           400      150        130         0         Open
+ 3          3            4           300      150        130         0         Open
+ 4          2            5           400      150        130         0         Open
+ 5          5            6           300      150        130         0         Open
+ 6          3            5           350      150        130         0         Open
+
+[OPTIONS]
+ Units               LPS
+ Headloss            H-W
+ Demand Model        DDA
+ Emitter Exponent    0.5
+
+[TIMES]
+ Duration            0:00
+ Hydraulic Timestep  1:00
+
+[COORDINATES]
+;Node       X            Y
+ 1          0.0          0.0
+ 2          1.0          0.0
+ 3          2.0          1.0
+ 4          3.0          1.0
+ 5          2.0         -1.0
+ 6          3.0         -1.0
+
+[END]

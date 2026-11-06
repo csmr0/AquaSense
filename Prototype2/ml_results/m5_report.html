@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>AquaSense — Milestone 5 report</title>
+<style>
+:root{--ink:#15283a;--muted:#596b7a;--blue:#1865ae;--line:#d9e2eb;--bg:#f3f6fa}
+*{box-sizing:border-box}body{font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink);margin:0}
+main{max-width:1070px;margin:auto;padding:36px 22px 75px}
+header{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+h1{font-size:34px;letter-spacing:-1.2px;margin:2px 0}h2{font-size:21px;margin:30px 0 13px}
+p{color:var(--muted)}small{color:var(--muted)}
+.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;overflow:auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:20px}
+.value{font-size:29px;font-weight:750;letter-spacing:-.5px}.metric-label{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}td,th{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--muted);font-size:12px}
+tr:last-child td{border-bottom:0}.bar{width:80px;height:6px;background:#e7f0f8;border-radius:8px;display:inline-block;margin-right:9px;vertical-align:middle}
+.bar span{display:block;height:100%;background:#3184cc;border-radius:8px}.warn{padding:14px 18px;background:#fff4d9;border:1px solid #f0d69a;border-radius:12px;color:#69511b}
+.tag{color:#1865ae;background:#e6f2fd;border-radius:999px;padding:7px 13px;font-size:12px;font-weight:700}
+</style></head><body><main>
+<header><div><span class='tag'>AquaSense · Hackathon prototype</span><h1>Repair investigation priorities</h1><small>Generated hidden synthetic scenario with local demand variation</small></div><small>One simulated network · one possible leak</small></header>
+<div class='cards'>
+<div class='panel'><div class='metric-label'>Best hydraulic-fit hypothesis</div><div class='value'>J4</div></div>
+<div class='panel'><div class='metric-label'>Top investigation-priority site</div><div class='value'>J4</div></div>
+<div class='panel'><div class='metric-label'>Anomaly detector</div><div class='value' style='font-size:18px'>ANOMALY</div><small> (score -0.070)</small></div>
+<div class='panel'><div class='metric-label'>Assumed recovery fraction if repaired</div><div class='value'>100%</div></div>
+</div>
+<h2>Investigation queue</h2><div class='panel'><table><thead><tr><th>Priority</th><th>Candidate</th><th>Hydraulic fit rank</th><th>Mismatch</th><th>Relative fit weight*</th><th>Potential m³/day</th><th>Triage index*</th></tr></thead>
+<tbody><tr><td>1</td><td>J4</td><td>1</td><td>0.664</td><td><div class='bar'><span style='width:99.83%'></span></div>99.8%</td><td>297.4</td><td>296.9</td></tr><tr><td>2</td><td>J3</td><td>2</td><td>2.200</td><td><div class='bar'><span style='width:0.14%'></span></div>0.1%</td><td>226.3</td><td>0.3</td></tr><tr><td>3</td><td>J5</td><td>3</td><td>2.402</td><td><div class='bar'><span style='width:0.03%'></span></div>0.0%</td><td>175.6</td><td>0.1</td></tr><tr><td>4</td><td>J6</td><td>4</td><td>2.841</td><td><div class='bar'><span style='width:0.00%'></span></div>0.0%</td><td>182.2</td><td>0.0</td></tr><tr><td>5</td><td>J2</td><td>5</td><td>3.705</td><td><div class='bar'><span style='width:0.00%'></span></div>0.0%</td><td>188.3</td><td>0.0</td></tr></tbody></table></div>
+<p class='warn'><b>Interpretation:</b> These sites are ALTERNATIVE explanations for ONE possible leak. Do not add their water-saving estimates. If the anomaly detector reports NORMAL, investigate the no-leak explanation first. Leakage values assume a steady 24-hour event and are not verified field savings.</p>
+<h2>Measurements used for inference</h2><div class='panel'><table><thead><tr><th>Sensor</th><th>Observed measurement</th></tr></thead><tbody><tr><td>pressure_4_m</td><td>47.424</td></tr><tr><td>pressure_6_m</td><td>49.648</td></tr><tr><td>flow_1_lps</td><td>20.354</td></tr></tbody></table></div>
+<h2>Method and limitations</h2><div class='panel'>
+<p>EPANET emitter scenarios are matched against sparse pressure and pipe-flow readings while varying overall consumer demand. Potential recovery = fitted emitter outflow × 86.4 m³/day per L/s × recovery fraction.</p>
+<p>*Relative fit weights are a Gaussian-like softmax of hydraulic mismatch scores. They are <b>not calibrated probabilities</b>. The triage index is a <b>heuristic</b> (weight × possible water recovery), not expected actual savings, repair cost, or economic return.</p>
+<p>Assumes one leak at a junction in a demand-driven, steady-state model. No uncertainty for pipe roughness, unmodelled demands, multiple leaks, repairs, or temporal pressure variation. Candidate sites are not confirmed leaks. Not suitable for directing real-world repair work without verification.</p>
+</div></main></body></html>
